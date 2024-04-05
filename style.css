@@ -6,15 +6,21 @@ body, html {
     align-items: center;
 }
 
-h1 {
+h1, h2 {
 text-align: center;
 }
 
-.game{
+.gamestyle{
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    flex-align: center;
     background-color: #34eba1;
     margin: 10px;
     border-radius: 25px;
+    justify-content: center;
+    overflow: auto;
+    align-items: center;
 }
 
 .top-container{
@@ -40,19 +46,78 @@ text-align: center;
   }
 
 
-.cell {
+  #gameboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    /* Optional: Specify a fixed size for the gameboard */
+    width: 500px;
+    margin: auto;
+  }
+  
+  .cell {
+    display: flex;
     align-items: center;
-    border: 2px solid; /* Add a border to see the cells */
-    background-color: #918f8e; /* Light background for cells */
-    font-size: 20px; /* Larger text for visibility */
-    width: 50px;
-    heihgt: 50px;
-}
+    font-size: 40px;
+    justify-content: center;
+    border: 0px solid #000; /* Add a visible border */
+    background-color: #fff; /* Add a background color */
+    /* Ensure cells have a size */
+    width: 100%; /* Take full width of the grid column */
+    height: 100px; /* Example fixed height */
+    cursor: pointer;
+  }
 
 .cell:hover {
     background-color: #e0e0e0; /* Darker background on hover */
   }
 
-#gameboard {
-    background-color: #0f0100;
+
+.win-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+  
+.win-message {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#header{
+    padding: 20px;
+}
+.scoreboard{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 10px;
+    padding: 20px;
+    border: 4px solid black;
+}
+
+.score{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button-team{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-bottom: 20px;
+}
+
+#winPopup{
+    display: none;
 }
